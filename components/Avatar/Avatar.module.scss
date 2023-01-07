@@ -1,0 +1,34 @@
+.avatar {
+  border-radius: 50%;
+  background-color: var(--color-gray-bright);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Generate avatar class names
+$avatar-sizes: (
+  SM: 32,
+  MD: 40,
+  LG: 48,
+  XL: 56
+);
+
+@each $name, $size in $avatar-sizes {
+  .avatar#{$name} {
+    width: #{$size}px;
+    height: #{$size}px;
+  }
+}
+
+.storyText {
+  font-size: 0.625rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
