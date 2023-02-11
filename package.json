@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-storybook-example",
+  "name": "next.js-storybook-example",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,9 +10,7 @@
     "lint:fix": "next lint --fix",
     "storybook:start": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "storybook:test": "test-storybook --coverage",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook:test": "test-storybook --coverage"
   },
   "dependencies": {
     "@next/font": "13.1.6",
