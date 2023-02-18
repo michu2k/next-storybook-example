@@ -1,18 +1,20 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {Inter} from "@next/font/google";
 import {Avatar, AvatarProps} from "./Avatar";
 import {AVATAR_SIZE} from "./Avatar.utils";
 import AvatarJpg from "public/avatar.jpg";
-import styles from "./Avatar.module.scss";
-
-const fontInter = Inter({
-  subsets: ["latin"]
-});
+import styles from "@/styles/Storybook.module.css";
 
 const meta: Meta<AvatarProps> = {
-  title: "Components/Avatar",
+  title: "Display/Avatar",
   component: Avatar,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className={styles.storybookMultipleStoryWrapper}>
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export default meta;
@@ -29,17 +31,10 @@ export const AllSizes: Story = {
   args: {
     src: AvatarJpg
   },
-  render: () => <div className={fontInter.className}>
+  render: () => <>
     <Avatar src={AvatarJpg} size={AVATAR_SIZE.SM} />
-    <p className={styles.storyText}>size SM 32x32</p>
-
     <Avatar src={AvatarJpg} size={AVATAR_SIZE.MD} />
-    <p className={styles.storyText}>size MD 40x40</p>
-
     <Avatar src={AvatarJpg} size={AVATAR_SIZE.LG} />
-    <p className={styles.storyText}>size LG 48x48</p>
-
     <Avatar src={AvatarJpg} size={AVATAR_SIZE.XL} />
-    <p className={styles.storyText}>size XL 56x56</p>
-  </div>
+  </>
 };

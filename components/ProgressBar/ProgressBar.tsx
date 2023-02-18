@@ -12,7 +12,7 @@ const ProgressBar = memo(({value}: ProgressBarProps) => {
 
   return (
     <div className={styles.progressBar}>
-      <div className={styles.progressBarFill} style={style} />
+      <div data-testid="progress-bar-fill" className={styles.progressBarFill} style={style} />
     </div>
   );
 });

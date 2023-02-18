@@ -11,16 +11,9 @@ type AvatarProps = {
 
 const Avatar = memo(({src, size = AVATAR_SIZE.MD}: AvatarProps) => {
 
-  const avatarSize = {
-    [AVATAR_SIZE.SM]: styles.avatarSM,
-    [AVATAR_SIZE.MD]: styles.avatarMD,
-    [AVATAR_SIZE.LG]: styles.avatarLG,
-    [AVATAR_SIZE.XL]: styles.avatarXL
-  };
-
   const avatarClassName = cn(
     styles.avatar,
-    avatarSize[size]
+    styles[`avatar${size}`]
   );
 
   return (
