@@ -2,12 +2,11 @@ import type {Meta, StoryObj} from "@storybook/react";
 import {Avatar, AvatarProps} from "./Avatar";
 import {AVATAR_SIZE} from "./Avatar.utils";
 import AvatarJpg from "public/avatar.jpg";
-import styles from "@/styles/Storybook.module.css";
+import styles from "@/styles/Storybook.module.scss";
 
-const meta: Meta<AvatarProps> = {
+const meta = {
   title: "Display/Avatar",
   component: Avatar,
-  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div className={styles.storybookMultipleStoryWrapper}>
@@ -15,26 +14,26 @@ const meta: Meta<AvatarProps> = {
       </div>
     )
   ]
-};
+} satisfies Meta<AvatarProps>;
 
 export default meta;
 
-type Story = StoryObj<AvatarProps>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     src: AvatarJpg
   }
-};
+} satisfies Story;
 
-export const AllSizes: Story = {
+export const AllSizes = {
   args: {
     src: AvatarJpg
   },
-  render: () => <>
-    <Avatar src={AvatarJpg} size={AVATAR_SIZE.SM} />
-    <Avatar src={AvatarJpg} size={AVATAR_SIZE.MD} />
-    <Avatar src={AvatarJpg} size={AVATAR_SIZE.LG} />
-    <Avatar src={AvatarJpg} size={AVATAR_SIZE.XL} />
+  render: (args) => <>
+    <Avatar {...args} size={AVATAR_SIZE.SM} />
+    <Avatar {...args} size={AVATAR_SIZE.MD} />
+    <Avatar {...args} size={AVATAR_SIZE.LG} />
+    <Avatar {...args} size={AVATAR_SIZE.XL} />
   </>
-};
+} satisfies Story;

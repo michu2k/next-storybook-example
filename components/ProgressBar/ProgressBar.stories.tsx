@@ -1,29 +1,46 @@
 import type {Meta, StoryObj} from "@storybook/react";
+import {expect} from "@storybook/jest";
+import {within} from "@storybook/testing-library";
 import {ProgressBar, ProgressBarProps} from "./ProgressBar";
 
-const meta: Meta<ProgressBarProps> = {
-  title: "Components/ProgressBar",
+const meta = {
+  title: "Feedback/ProgressBar",
   component: ProgressBar,
-  tags: ["autodocs"],
   argTypes: {
     value: {
       control: {type: "range"}
     }
   }
-};
+} satisfies Meta<ProgressBarProps>;
 
 export default meta;
 
-type Story = StoryObj<ProgressBarProps>;
+type Story = StoryObj<typeof meta>;
 
-export const Empty: Story = {
+export const Empty = {
   args: {
     value: 0
-  }
-};
+  },
+  play: async ({canvasElement, args}) => {
+    const canvas = within(canvasElement);
 
-export const Filled: Story = {
+    const progress = canvas.getByTestId("progress-bar-fill");
+
+    expect(progress).toBeInTheDocument();
+    expect(canvas.getByTestId("progress-bar-fill")).toHaveStyle(`--progress-bar-fill: ${args.value}%`);
+  }
+} satisfies Story;
+
+export const Filled = {
   args: {
     value: 50
+  },
+  play: async ({canvasElement, args}) => {
+    const canvas = within(canvasElement);
+
+    const progress = canvas.getByTestId("progress-bar-fill");
+
+    expect(progress).toBeInTheDocument();
+    expect(canvas.getByTestId("progress-bar-fill")).toHaveStyle(`--progress-bar-fill: ${args.value}%`);
   }
-};
+} satisfies Story;
