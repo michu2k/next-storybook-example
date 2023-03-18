@@ -20,12 +20,15 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Default Avatar variant */
 export const Default = {
   args: {
-    src: AvatarJpg
+    src: AvatarJpg,
+    size: AVATAR_SIZE.MD
   }
 } satisfies Story;
 
+/** Avatar component with different sizes */
 export const AllSizes = {
   args: {
     src: AvatarJpg

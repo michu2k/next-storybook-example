@@ -17,6 +17,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+/** Progress bar with 0% value */
 export const Empty = {
   args: {
     value: 0
@@ -31,6 +32,7 @@ export const Empty = {
   }
 } satisfies Story;
 
+/** Progress bar with 50% value */
 export const Filled = {
   args: {
     value: 50

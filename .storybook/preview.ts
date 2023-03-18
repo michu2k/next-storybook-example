@@ -1,5 +1,6 @@
 import {MINIMAL_VIEWPORTS} from "@storybook/addon-viewport";
 
+// Custom viewports definition. Extending the MINIMAL_VIEWPORTS
 const customViewports = {
   iphone7: {
     name: "iPhone 7",
