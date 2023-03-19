@@ -1,5 +1,6 @@
 import {Preview} from "@storybook/react";
 import {MINIMAL_VIEWPORTS} from "@storybook/addon-viewport";
+import "../styles/_variables.scss"; // Import CSS variables
 
 // Custom viewports definition. Extends the MINIMAL_VIEWPORTS
 const customViewports = {
