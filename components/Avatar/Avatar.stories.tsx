@@ -33,6 +33,14 @@ export const AllSizes = {
   args: {
     src: AvatarJpg
   },
+  argTypes: {
+    // Disable the size control in the table, as different sizes are rendered
+    size: {
+      table: {
+        disable: true
+      }
+    }
+  },
   render: (args) => <>
     <Avatar {...args} size={AVATAR_SIZE.SM} />
     <Avatar {...args} size={AVATAR_SIZE.MD} />
