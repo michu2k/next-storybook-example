@@ -19,7 +19,10 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true // Generate docs automatically for each story
-  }
+  },
+  typescript: {
+    reactDocgen: "react-docgen",
+  },
 };
 
 export default config;
