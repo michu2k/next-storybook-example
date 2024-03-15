@@ -1,6 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {expect} from "@storybook/jest";
-import {within} from "@storybook/testing-library";
+import {within, expect} from "@storybook/test";
 import {ProgressBar, ProgressBarProps} from "./ProgressBar";
 
 const meta = {
